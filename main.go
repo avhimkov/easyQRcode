@@ -2,22 +2,12 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 	"strings"
 )
 
 func main() {
-
-	/*
-		str := "sdfdsf, sdpsd[pd, sdosidsoowoow"
-		result := strings.Split(str, ",")
-	*/
-
-	/*
-		for i := range result {
-			fmt.Println(result[i])
-			QRgen(result[i], "gen/qr.png")
-		} */
 
 	// Part 1: open the file and scan it.
 	f, _ := os.Open("file/file.txt")
@@ -32,14 +22,23 @@ func main() {
 
 		// Loop over the parts from the string.
 		for i := range parts {
-			// names = append(names, fi.Name())
-
 			QRgen(parts[i], "gen/"+parts[i]+".png")
-			// fmt.Println(parts[i])
+			// QRreader("gen/" + parts[i] + ".png")
 		}
-		// Write a newline.
-		// fmt.Println()
+		fmt.Println()
 	}
+	/*
+		// Read QRcode image
+		qrfiles, err := ioutil.ReadDir("gen/")
+		if err != nil {
+			log.Fatal(err)
+		}
 
+		for _, f := range qrfiles {
+			QRreader(f.Name())
+			// fmt.Println(f.Name())
+		}
+	*/
 	// QRreader("gen/qr.png")
+
 }

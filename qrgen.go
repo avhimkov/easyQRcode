@@ -15,7 +15,7 @@ func QRgen(text, path string) error {
 	qrCode, _ := qr.Encode(text, qr.M, qr.Auto)
 
 	// Scale the barcode to 200x200 pixels
-	qrCode, _ = barcode.Scale(qrCode, 200, 200)
+	qrCode, _ = barcode.Scale(qrCode, 300, 300)
 
 	// create the output file
 	file, err := os.Create(path)
