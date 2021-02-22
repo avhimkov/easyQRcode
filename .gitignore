@@ -15,3 +15,5 @@
 # vendor/
 
 gen
+file
+.vscode

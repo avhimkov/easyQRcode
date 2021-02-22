@@ -9,16 +9,8 @@ import (
 
 func main() {
 
-	str := "sdfdsf, sdpsd[pd, sdosidsoowoow"
-	result := strings.Split(str, ",")
-
-	for i := range result {
-		fmt.Println(result[i])
-		QRgen(result[i], "gen/qr.png")
-	}
-
 	// Part 1: open the file and scan it.
-	f, _ := os.Open("C:\\programs\\file.txt")
+	f, _ := os.Open("file/file.txt")
 	scanner := bufio.NewScanner(f)
 
 	// Part 2: call Scan in a for-loop.
@@ -30,11 +22,23 @@ func main() {
 
 		// Loop over the parts from the string.
 		for i := range parts {
-			fmt.Println(parts[i])
+			QRgen(parts[i], "gen/"+parts[i]+".png")
+			// QRreader("gen/" + parts[i] + ".png")
 		}
-		// Write a newline.
 		fmt.Println()
 	}
+	/*
+		// Read QRcode image
+		qrfiles, err := ioutil.ReadDir("gen/")
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	QRreader("gen/qr.png")
+		for _, f := range qrfiles {
+			QRreader(f.Name())
+			// fmt.Println(f.Name())
+		}
+	*/
+	// QRreader("gen/qr.png")
+
 }
