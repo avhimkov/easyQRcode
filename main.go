@@ -22,10 +22,11 @@ func main() {
 
 		// Loop over the parts from the string.
 		for i := range parts {
-			QRgen(parts[i], "gen/"+parts[i]+".png")
+			QRgen(parts[i], "gen/"+fmt.Sprint(i)+".png")
 			// QRreader("gen/" + parts[i] + ".png")
+			fmt.Println(fmt.Sprint(i) + " " + "---" + parts[i])
 		}
-		fmt.Println()
+
 	}
 	/*
 		// Read QRcode image
